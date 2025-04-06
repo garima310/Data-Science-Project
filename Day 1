@@ -1,0 +1,24 @@
+DAY 1: Loading & Basic Inspection 
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+import os
+from sklearn.preprocessing import LabelEncoder
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.decomposition import PCA
+from scipy.stats import zscore
+import warnings
+warnings.filterwarnings('ignore')
+
+# Load Excel file
+file_path = "disgenet_21_01_25.xlsx"
+xls = pd.ExcelFile(file_path)
+df = xls.parse(xls.sheet_names[0])
+
+print("Shape:", df.shape)
+print("Columns:", df.columns.tolist())
+print(df.head())
+print(df.info())
+
+os.makedirs("eda_plots", exist_ok=True)
